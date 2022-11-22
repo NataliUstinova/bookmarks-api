@@ -11,8 +11,22 @@ module.exports.getAllMovies = (req, res, next) => {
 };
 
 module.exports.createMovie = (req, res, next) => {
-  const { country, director, duration, year, image, trailerLink, thumbnail, movieId, nameRU, nameEN } = req.body;
-  Movie.create({ country, director, duration, year, image, trailerLink, thumbnail, owner: req.user._id, movieId, nameRU, nameEN })
+  const {
+    country, director, duration, year, image, trailerLink, thumbnail, movieId, nameRU, nameEN,
+  } = req.body;
+  Movie.create({
+    country,
+    director,
+    duration,
+    year,
+    image,
+    trailerLink,
+    thumbnail,
+    owner: req.user._id,
+    movieId,
+    nameRU,
+    nameEN,
+  })
     .then((movie) => res.send(movie))
     .catch((e) => {
       if (e.name === ERROR_NAME.VALIDATION) {
@@ -29,11 +43,11 @@ module.exports.deleteMovie = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError(ERROR_MESSAGE.NOT_FOUND.MOVIE);
     }).then((movie) => {
-    if (movie.owner.toString() !== req.user._id) {
-      throw new ForbiddenError('Нельзя удалять чужие фильмы');
-    }
-    return Movie.findByIdAndDelete(movieId);
-  }).then((movie) => res.send(movie))
+      if (movie.owner.toString() !== req.user._id) {
+        throw new ForbiddenError('Нельзя удалять чужие фильмы');
+      }
+      return Movie.findByIdAndDelete(movieId);
+    }).then((movie) => res.send(movie))
     .catch((e) => {
       if (e.name === ERROR_NAME.CAST) {
         next(new BadRequestError(ERROR_MESSAGE.BAD_REQUEST.MOVIE_DELETE));
