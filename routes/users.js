@@ -15,3 +15,5 @@ router.patch('/me', auth, celebrate({
     email: Joi.string().required().email({ minDomainSegments: 2, tlds: { allow: false } }),
   }),
 }), updateUserInfo);
+
+module.exports = router;
