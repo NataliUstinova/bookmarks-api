@@ -12,10 +12,11 @@ module.exports.getUserMovies = (req, res, next) => {
 
 module.exports.createMovie = (req, res, next) => {
   const {
-    country, director, duration, year, image, trailerLink, thumbnail, movieId, nameRU, nameEN,
+    country, description, director, duration, year, image, trailerLink, thumbnail, movieId, nameRU, nameEN,
   } = req.body;
   Movie.create({
     country,
+    description,
     director,
     duration,
     year,
