@@ -15,9 +15,9 @@ const { PORT = 3002 } = process.env;
 
 const app = express();
 
+app.use(requestLogger);
 app.use(cookieParser());
 app.use(cors);
-
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
 app.use(helmet());
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // подключаемся к серверу mongo
 mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb');
 
-app.use(requestLogger);
+
 app.use(routes);
 
 app.use(errorLogger); // подключаем логгер ошибок
