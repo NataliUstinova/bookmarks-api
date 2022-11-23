@@ -1,10 +1,10 @@
 const allowedCors = [
   'http://localhost:3002',
   'http://localhost:3003',
-  'https://movies.nata.u.nomoredomains.icu',
-  'https://api.movies.nata.u.nomoredomains.icu',
-  'http://movies.nata.u.nomoredomains.icu',
-  'http://api.movies.nata.u.nomoredomains.icu',
+  'https://movies.nata.u.nomoredomains.club',
+  'https://api.movies.nata.u.nomoredomains.club',
+  'http://movies.nata.u.nomoredomains.club',
+  'http://api.movies.nata.u.nomoredomains.club',
 ];
 
 module.exports = (req, res, next) => {
