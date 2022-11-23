@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { celebrate, Joi } = require('celebrate');
 const { auth } = require('../middlewares/auth');
-
+const { updateUserValidation } = require('../middlewares/validation');
 const {
   getUserInfo, updateUserInfo,
 } = require('../controllers/users');
@@ -9,11 +8,6 @@ const {
 // роуты с авторизацией
 router.get('/me', auth, getUserInfo);
 
-router.patch('/me', auth, celebrate({
-  body: Joi.object().keys({
-    name: Joi.string().required().min(2).max(30),
-    email: Joi.string().required().email({ minDomainSegments: 2, tlds: { allow: false } }),
-  }),
-}), updateUserInfo);
+router.patch('/me', auth, updateUserValidation, updateUserInfo);
 
 module.exports = router;
