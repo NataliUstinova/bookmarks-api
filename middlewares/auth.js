@@ -12,10 +12,9 @@ module.exports.auth = (req, res, next) => {
     // Вытаскиваем айди из токена
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : devSecret);
   } catch (err) {
-    next(new AuthError(ERROR_MESSAGE.AUTH_ERROR));
+    throw new AuthError(ERROR_MESSAGE.AUTH_ERROR);
   }
 
   req.user = payload; // записываем пейлоуд в объект запроса
-
   next(); // пропускаем запрос дальше
 };
