@@ -5,6 +5,8 @@ const ERROR_NAME = {
 
 const MESSAGE = {
   AUTH_SUCCESS: 'Авторизация прошла успешно',
+  JWT_SAVED: 'Токен сохранен',
+  EXIT: 'Выход',
 };
 
 const ERROR_MESSAGE = {
@@ -21,10 +23,17 @@ const ERROR_MESSAGE = {
   },
   AUTH_ERROR: 'Необходима авторизация',
   DEFAULT_ERROR: 'На сервере произошла ошибка.',
+  EMAIL_EXIST_ERROR: 'Пользователь с данным email уже существует',
+  FORBIDDEN_ERROR: 'Нельзя удалять чужие фильмы',
+  INVALID_LINK: 'Невалидная ссылка',
+  INVALID_EMAIL: 'Невалидный email',
+  EMAIL_OR_PASS: 'Неправильные почта или пароль',
+
 };
 
+const devSecret = 'strongest-key-ever';
 const urlValidatorPattern = /^((http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-/])*)?/;
 
 module.exports = {
-  ERROR_MESSAGE, ERROR_NAME, MESSAGE, urlValidatorPattern,
+  ERROR_MESSAGE, ERROR_NAME, MESSAGE, urlValidatorPattern, devSecret,
 };

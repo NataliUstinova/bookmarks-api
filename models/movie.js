@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { urlValidatorPattern } = require('../constants/constants');
+const { urlValidatorPattern, ERROR_MESSAGE } = require('../constants/constants');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -29,7 +29,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return urlValidatorPattern.test(v);
       },
-      message: (props) => `${props.value} невалидная ссылка`,
+      message: (props) => `${props.value} ${ERROR_MESSAGE.INVALID_LINK}`,
     },
   },
   trailerLink: {
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return urlValidatorPattern.test(v);
       },
-      message: (props) => `${props.value} невалидная ссылка`,
+      message: (props) => `${props.value} ${ERROR_MESSAGE.INVALID_LINK}`,
     },
   },
   thumbnail: {
@@ -49,7 +49,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return urlValidatorPattern.test(v);
       },
-      message: (props) => `${props.value} невалидная ссылка`,
+      message: (props) => `${props.value} ${ERROR_MESSAGE.INVALID_LINK}`,
     },
   },
   owner: {
