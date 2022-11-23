@@ -10,8 +10,9 @@ const { limiter } = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { errorHandler } = require('./middlewares/errorHandler');
 const routes = require('./routes');
+const { devBaseUrl } = require('./constants/constants');
 
-const { PORT = 3002 } = process.env;
+const { NODE_ENV, DATABASE_URL, PORT = 3002 } = process.env;
 
 const app = express();
 
@@ -27,8 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // подключаемся к серверу mongo
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb');
-
+mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : devBaseUrl);
 
 app.use(routes);
 

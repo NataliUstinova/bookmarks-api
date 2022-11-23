@@ -28,12 +28,12 @@ const ERROR_MESSAGE = {
   INVALID_LINK: 'Невалидная ссылка',
   INVALID_EMAIL: 'Невалидный email',
   EMAIL_OR_PASS: 'Неправильные почта или пароль',
-
 };
 
+const devBaseUrl = 'mongodb://127.0.0.1:27017/moviesdb';
 const devSecret = 'strongest-key-ever';
 const urlValidatorPattern = /^((http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-/])*)?/;
 
 module.exports = {
-  ERROR_MESSAGE, ERROR_NAME, MESSAGE, urlValidatorPattern, devSecret,
+  ERROR_MESSAGE, ERROR_NAME, MESSAGE, urlValidatorPattern, devSecret, devBaseUrl,
 };
