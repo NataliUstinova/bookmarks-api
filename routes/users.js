@@ -11,7 +11,7 @@ router.get('/me', auth, getUserInfo);
 
 router.patch('/me', auth, celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email({ minDomainSegments: 2, tlds: { allow: false } }),
   }),
 }), updateUserInfo);

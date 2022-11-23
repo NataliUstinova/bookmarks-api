@@ -6,7 +6,7 @@ const AuthError = require('../errors/auth-err');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: false,
+    required: true,
     minLength: 2,
     maxLength: 30,
   },
