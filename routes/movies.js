@@ -3,9 +3,9 @@ const { celebrate, Joi } = require('celebrate');
 const { auth } = require('../middlewares/auth');
 
 const { urlValidatorPattern } = require('../constants/constants');
-const { getAllMovies, createMovie, deleteMovie } = require('../controllers/movies');
+const { getUserMovies, createMovie, deleteMovie } = require('../controllers/movies');
 
-router.get('/', auth, getAllMovies);
+router.get('/', auth, getUserMovies);
 
 router.post('/', auth, celebrate({
   body: Joi.object().keys({
