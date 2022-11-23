@@ -11,17 +11,24 @@ Backend could be accessed via:
 ](https://api.movies.nata.u.nomoredomains.club/)
 
 ---
-[SSL Report](https://www.ssllabs.com/ssltest/analyze.html?d=api.movies.nata.u.nomoredomains.club)
+
+WIP Frontend will be available at:
+[https://movies.nata.u.nomoredomains.club/
+](https://movies.nata.u.nomoredomains.club/)
+
+---
+[SSL Report for Backend](https://www.ssllabs.com/ssltest/analyze.html?d=api.movies.nata.u.nomoredomains.club)
+
+[SSL Report for Frontend](https://www.ssllabs.com/ssltest/analyze.html?d=movies.nata.u.nomoredomains.club)
 
 ---
 
 ## Директории
 
 `/routes` — папка с файлами роутера  
-`/controllers` — папка с файлами контроллеров пользователя и карточки   
-`/models` — папка с файлами описания схем пользователя и карточки
-
-Остальные директории вспомогательные, создаются при необходимости разработчиком
+`/controllers` — папка с файлами контроллеров пользователя и фильма   
+`/models` — папка с файлами описания схем пользователя и фильма
+`/middlewares` — папка с связующими файлами
 
 ## Запуск проекта
 
