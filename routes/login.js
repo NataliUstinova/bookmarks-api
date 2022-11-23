@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const { createUser, login } = require('../controllers/users');
+const { auth } = require('../middlewares/auth');
 
 // роуты, не требующие авторизации, регистрация и логин
 router.post('/signup', celebrate({
@@ -17,7 +18,7 @@ router.post('/signin', celebrate({
   }),
 }), login);
 
-router.get('/signout', (req, res) => {
+router.get('/signout', auth, (req, res) => {
   res.clearCookie('jwt').send({ message: 'Выход' });
 });
 

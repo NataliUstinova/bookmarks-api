@@ -3,7 +3,6 @@ const AuthError = require('../errors/auth-err');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
-// eslint-disable-next-line consistent-return
 module.exports.auth = (req, res, next) => {
   let payload;
   // Чтобы отловить ошибки оборачиваем в try-catch
