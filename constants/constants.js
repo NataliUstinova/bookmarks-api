@@ -5,7 +5,7 @@ const ERROR_NAME = {
 
 const MESSAGE = {
   AUTH_SUCCESS: 'Авторизация прошла успешно',
-  JWT_SAVED: 'Токен сохранен',
+  JWT_SAVED: 'Авторизация прошла успешно. Токен сохранен',
   EXIT: 'Выход',
 };
 
@@ -32,7 +32,7 @@ const ERROR_MESSAGE = {
 
 const devBaseUrl = 'mongodb://127.0.0.1:27017/moviesdb';
 const devSecret = 'strongest-key-ever';
-const urlValidatorPattern = /^((http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-/])*)?/;
+const urlValidatorPattern = /^(.+)\/([^\/]+)$/;
 
 module.exports = {
   ERROR_MESSAGE, ERROR_NAME, MESSAGE, urlValidatorPattern, devSecret, devBaseUrl,
