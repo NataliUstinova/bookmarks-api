@@ -79,5 +79,13 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
       }).send({ message: MESSAGE.JWT_SAVED });
     })
-    .catch(next);
+    .catch((e) => {
+      if (e.name === ERROR_NAME.VALIDATION || e.name === ERROR_NAME.CAST) {
+        next(new BadRequestError(ERROR_MESSAGE.BAD_REQUEST.USER_UPDATE));
+      } else if (e.code === 11000) {
+        next(new EmailExistError(ERROR_MESSAGE.EMAIL_EXIST_ERROR));
+      } else {
+        next(e);
+      }
+    });
 };
