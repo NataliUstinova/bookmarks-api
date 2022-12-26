@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { createUser, login } = require('../controllers/users');
-const { auth } = require('../middlewares/auth');
 const { MESSAGE } = require('../constants/constants');
 const { signUpValidation, signInValidation } = require('../middlewares/validation');
 
@@ -8,7 +7,7 @@ const { signUpValidation, signInValidation } = require('../middlewares/validatio
 router.post('/signup', signUpValidation, createUser);
 router.post('/signin', signInValidation, login);
 
-router.get('/signout', auth, (req, res) => {
+router.get('/signout', (req, res) => {
   res.clearCookie('jwt').send({ message: MESSAGE.EXIT });
 });
 
