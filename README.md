@@ -1,5 +1,5 @@
-# movies-explorer-api
-## Backend for the Movies Explorer Project
+# bookmarks-api
+## Backend for My Bookmarks Project
 
 IP:
 `158.160.38.60
