@@ -12,7 +12,7 @@ const { errorHandler } = require('./middlewares/errorHandler');
 const routes = require('./routes');
 const { devBaseUrl } = require('./constants/constants');
 
-const { NODE_ENV, DATABASE_URL, PORT = 3002 } = process.env;
+const { NODE_ENV, DATABASE_URL, PORT = 3003 } = process.env;
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // подключаемся к серверу mongo
-mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : devBaseUrl);
+mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : DATABASE_DEV_URL);
 
 app.use(routes);
 

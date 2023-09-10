@@ -23,32 +23,28 @@ const updateUserValidation = celebrate({
   }),
 });
 
-const createMovieValidation = celebrate({
+const createBookmarkValidation = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().required(),
-    description: Joi.string().required(),
-    director: Joi.string().required(),
-    duration: Joi.number().required(),
-    year: Joi.string().required(),
-    image: Joi.string().required().pattern(urlValidatorPattern),
-    trailerLink: Joi.string().required().pattern(urlValidatorPattern),
+    book_title: Joi.string().required(),
+    book_authors: Joi.string().required(),
+    content: Joi.string().required(),
+    comment: Joi.string().allow(null, ''),
+    color: Joi.string().allow(null, ''),
     thumbnail: Joi.string().required().pattern(urlValidatorPattern),
-    movieId: Joi.number().required(),
-    nameRU: Joi.string().required(),
-    nameEN: Joi.string().required(),
+    created_at: Joi.date(),
   }),
 });
 
-const deleteMovieValidation = celebrate({
+const deleteBookmarkValidation = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().required().hex().length(24),
+    bookmarkId: Joi.string().required().hex().length(24),
   }),
 });
 
 module.exports = {
   signUpValidation,
   signInValidation,
-  createMovieValidation,
-  deleteMovieValidation,
+  createBookmarkValidation,
+  deleteBookmarkValidation,
   updateUserValidation,
 };
